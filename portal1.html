@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal Link - Mesin Pencari & Berita</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --accent: #0d6efd;
+    }
+    body{background: #f8f9fa;}
+    .search-card{border-radius:12px; box-shadow:0 6px 18px rgba(13,110,253,0.06);} 
+    .favicon{width:28px;height:28px;object-fit:contain}
+    .site-card:hover{transform:translateY(-4px);transition:all .18s ease}
+    .site-card{transition:all .18s ease}
+    .dark-mode{background:#0b1220;color:#e9eef8}
+    .dark-mode .card{background: #0f1724;color:#e9eef8}
+    .toggle-btn{cursor:pointer}
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">Portal Link</a>
+      <div class="d-flex align-items-center">
+        <button id="themeToggle" class="btn btn-outline-secondary btn-sm me-2 toggle-btn">Dark</button>
+        <a class="btn btn-primary btn-sm" href="#links">Lihat Link</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero / Search -->
+  <header class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card p-4 search-card">
+          <h3 class="mb-2">Cari apa hari ini?</h3>
+          <p class="text-muted small">Pilih mesin pencari lalu ketik kata kunci. Hasil akan terbuka di tab baru.</p>
+
+          <div class="row g-2 align-items-center">
+            <div class="col-md-8">
+              <input id="q" type="search" class="form-control form-control-lg" placeholder="Contoh: pendidikan online, berita teknologi" aria-label="query">
+            </div>
+            <div class="col-md-4 d-flex">
+              <select id="engine" class="form-select me-2">
+                <option value="https://www.google.com/search?q=%s">Google</option>
+                <option value="https://www.bing.com/search?q=%s">Bing</option>
+                <option value="https://search.yahoo.com/search?p=%s">Yahoo</option>
+                <option value="https://duckduckgo.com/?q=%s">DuckDuckGo</option>
+              </select>
+              <button id="searchBtn" class="btn btn-primary">Cari</button>
+            </div>
+          </div>
+
+          <div class="mt-3 small text-muted">Shortcut: tekan Enter untuk cari. Hasil terbuka di tab baru.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Links Section -->
+  <main class="container mb-5" id="links">
+    <div class="row g-4">
+      <!-- Search Engines -->
+      <div class="col-lg-6">
+        <h5 class="mb-3">Mesin Pencari</h5>
+        <div class="row row-cols-1 row-cols-md-2 g-3">
+          <!-- Card item -->
+          <div class="col">
+            <a class="text-decoration-none" href="https://www.google.com" target="_blank">
+              <div class="card p-3 site-card">
+                <div class="d-flex align-items-center">
+                  <img class="favicon me-3" src="https://www.google.com/favicon.ico" alt="Google">
+                  <div>
+                    <div class="fw-semibold">Google</div>
+                    <div class="small text-muted">Pencarian umum & berita</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col">
+            <a class="text-decoration-none" href="https://www.bing.com" target="_blank">
+              <div class="card p-3 site-card">
+                <div class="d-flex align-items-center">
+                  <img class="favicon me-3" src="https://www.bing.com/sa/simg/favicon-2x.ico" alt="Bing">
+                  <div>
+                    <div class="fw-semibold">Bing</div>
+                    <div class="small text-muted">Pencarian & gambar</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col">
+            <a class="text-decoration-none" href="https://duckduckgo.com" target="_blank">
+              <div class="card p-3 site-card">
+                <div class="d-flex align-items-center">
+                  <img class="favicon me-3" src="https://duckduckgo.com/favicon.ico" alt="DuckDuckGo">
+                  <div>
+                    <div class="fw-semibold">DuckDuckGo</div>
+                    <div class="small text-muted">Pencarian privasi</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <div class="col">
+            <a class="text-decoration-none" href="https://search.yahoo.com" target="_blank">
+              <div class="card p-3 site-card">
+                <div class="d-flex align-items-center">
+                  <img class="favicon me-3" src="https://s.yimg.com/rz/l/favicon.ico" alt="Yahoo">
+                  <div>
+                    <div class="fw-semibold">Yahoo</div>
+                    <div class="small text-muted">Pencarian & portal berita</div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- News Links -->
+      <div class="col-lg-6">
+        <h5 class="mb-3">Portal Berita</h5>
+        <div class="row row-cols-1 g-3">
+          <div class="col">
+            <div class="card p-3">
+              <div class="d-flex align-items-center">
+                <img class="favicon me-3" src="https://detik.com/favicon.ico" alt="Detik" onerror="this.src='https://picsum.photos/32'">
+                <div>
+                  <a class="fw-semibold d-block text-decoration-none" href="https://www.detik.com" target="_blank">Detik</a>
+                  <div class="small text-muted">Berita terkini Indonesia</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3">
+              <div class="d-flex align-items-center">
+                <img class="favicon me-3" src="https://kompas.com/favicon.ico" alt="Kompas" onerror="this.src='https://picsum.photos/32'">
+                <div>
+                  <a class="fw-semibold d-block text-decoration-none" href="https://www.kompas.com" target="_blank">Kompas</a>
+                  <div class="small text-muted">Liputan mendalam & opini</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3">
+              <div class="d-flex align-items-center">
+                <img class="favicon me-3" src="https://www.bbc.com/favicon.ico" alt="BBC">
+                <div>
+                  <a class="fw-semibold d-block text-decoration-none" href="https://www.bbc.com" target="_blank">BBC</a>
+                  <div class="small text-muted">Berita internasional</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3">
+              <div class="d-flex align-items-center">
+                <img class="favicon me-3" src="https://www.cnnindonesia.com/assets/images/favicon.ico" alt="CNN">
+                <div>
+                  <a class="fw-semibold d-block text-decoration-none" href="https://www.cnnindonesia.com" target="_blank">CNN Indonesia</a>
+                  <div class="small text-muted">Berita & analisis</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick Links / Categories -->
+    <div class="mt-4">
+      <h6>Kategori Cepat</h6>
+      <div class="d-flex flex-wrap gap-2 mt-2">
+        <a class="btn btn-outline-secondary btn-sm" href="https://news.google.com" target="_blank">Berita Lokal</a>
+        <a class="btn btn-outline-secondary btn-sm" href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFZxYUdjU0FtVnVHZ0pKQVAB" target="_blank">Teknologi</a>
+        <a class="btn btn-outline-secondary btn-sm" href="https://news.google.com/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRFp6YUdjU0FtVnVHZ0pKQVAB" target="_blank">Olahraga</a>
+        <a class="btn btn-outline-secondary btn-sm" href="https://finance.yahoo.com" target="_blank">Ekonomi</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-top py-3">
+    <div class="container d-flex justify-content-between small">
+      <div>&copy; 2025 Portal Link</div>
+      <div>Made for tugas sekolah • <a href="#" class="text-decoration-none">Privacy</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Search behaviour: replace %s with encoded query and open in new tab
+    const searchBtn = document.getElementById('searchBtn');
+    const qInput = document.getElementById('q');
+    const engineSelect = document.getElementById('engine');
+
+    function doSearch(){
+      const q = encodeURIComponent(qInput.value.trim());
+      if(!q) return qInput.focus();
+      const template = engineSelect.value;
+      const url = template.replace('%s', q);
+      window.open(url, '_blank');
+    }
+
+    searchBtn.addEventListener('click', doSearch);
+    qInput.addEventListener('keydown', (e)=>{ if(e.key === 'Enter') doSearch(); });
+
+    // Dark mode toggle (simple)
+    const themeToggle = document.getElementById('themeToggle');
+    themeToggle.addEventListener('click', ()=>{
+      document.body.classList.toggle('dark-mode');
+      themeToggle.textContent = document.body.classList.contains('dark-mode') ? 'Light' : 'Dark';
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
